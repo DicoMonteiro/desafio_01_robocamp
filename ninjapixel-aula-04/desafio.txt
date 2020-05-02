@@ -1,0 +1,6 @@
+
+
+1) Em Actions, temos elementos que não estamos na camada de page object.
+Você deve resolver isso...
+
+2) Cenários alternativos ao cadastrar produtos
