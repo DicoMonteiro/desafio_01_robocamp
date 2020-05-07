@@ -19,7 +19,7 @@ Resource    pages/GetProductPage.robot
 ## Login ###
 
 Dado que eu acesso a página de login
-    Go To    ${URL}/login
+    Go To    ${base_url}/login
 
 Quando solicito submeto minhas credenciais de login "${email}" e senha "${senha}"
     Login with    ${email}    ${senha}

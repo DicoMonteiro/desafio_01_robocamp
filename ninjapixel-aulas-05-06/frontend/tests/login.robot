@@ -16,31 +16,38 @@ Test Teardown   After Test
 Login com sucesso
     [tags]     login
     Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais "didico@ninjapixel.com" e "pwd123"
+    Quando eu submeto minhas credenciais "papito@ninjapixel.com" e "pwd123"
     Entao devo ser autenticado
 
     [Teardown]      After Test WCLS
 
 Senha incorreta
-    [Template]               Tentativa de login
-    didico@ninjapixel.com    abc123                Usuário e/ou senha inválidos
+    [Template]               Tentativa de login com mensagem de erro
+    papito@ninjapixel.com    abc123                Usuário e/ou senha inválidos
 
 Email não existe
-    [Template]    Tentativa de login
+    [Template]    Tentativa de login com mensagem de erro
     404@yahoo     abc123                Usuário e/ou senha inválidos
 
 Email Obrigatório
-    [Template]    Tentativa de login
+    [Template]    Tentativa de login com mensagem informativa
     ${EMPTY}      abc123                Opps. Informe o seu email!
 
 Senha Obrigatória
-    [Template]               Tentativa de login
+    [Template]               Tentativa de login com mensagem informativa
     papito@ninjapixel.com    ${EMPTY}              Opps. Informe a sua senha!
 
 *** Keywords ***
-Tentativa de login
+Tentativa de login com mensagem de erro
     [Arguments]    ${email}    ${pass}    ${saida}
 
     Dado que eu acesso a página de login
     Quando eu submeto minhas credenciais "${email}" e "${pass}"
-    Entao devo ver uma mensagem de alerta "${saida}"
+    Entao devo ver uma mensagem de erro     ${saida}
+
+Tentativa de login com mensagem informativa
+    [Arguments]    ${email}    ${pass}    ${saida}
+
+    Dado que eu acesso a página de login
+    Quando eu submeto minhas credenciais "${email}" e "${pass}"
+    Entao devo ver uma mensagem informativa     ${saida}

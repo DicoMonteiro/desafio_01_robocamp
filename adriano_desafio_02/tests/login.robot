@@ -1,16 +1,16 @@
 
 *** Settings ***
-Documentation       Suite de testes para validar o login do sistema Pixel
-...                 Sendo um administrador de catálogo
-...                 Quero me autenticar no sistema
-...                 Para que eu possa gerenciar o catálogo de produtos
+Documentation    Login
+...              Sendo um administrador de catálogo
+...              Quero me autenticar no sistema
+...              Para que eu possa gerenciar o catálogo de produtos
 
-Resource            ../resources/actions.robot
+Resource    ../resources/actions.robot
 
-Suite Setup           Open session
-Suite Teardown        Close session
+Suite Setup     Open Session
+Suite Teardown  Close Session
 
-Test Teardown         After Test
+Test Teardown   After Test
 
 *** Test Cases ***
 Login com sucesso
